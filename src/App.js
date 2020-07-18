@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import socketIOClient from "socket.io-client"
 import './App.css';
+import ClientComponent from './components/ClientComponent'
+
 
 function App() {
+
+  
+  const [loadClient,setLoadClient]=useState(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+<button onClick={()=>setLoadClient(prevState=>!prevState)}>
+
+</button>
+{loadClient?<ClientComponent/>:null}
+   </>
   );
 }
 
